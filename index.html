@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Villa Paraíso | Tu Alojamiento de Ensueño</title>
+  <link rel="stylesheet" href="styles.css">
+  <!-- Iconos de FontAwesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* Asegura desplazamiento suave para todos los botones/enlaces de la navegación */
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navegación -->
+  <header class="navbar">
+    <div class="logo">
+      <i class="fa-solid fa-house-chimney"></i> Villa Paraíso
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#galeria">Galería</a></li>
+        <li><a href="#caracteristicas">Servicios</a></li>
+        <li><a href="#reservar" class="btn-nav">Reservar Ahora</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Banner Principal / Hero -->
+  <section id="inicio" class="hero">
+    <div class="hero-content">
+      <h1>Relájate y disfruta como en casa</h1>
+      <p>Un espacio acogedor, moderno y cerca de los mejores lugares turísticos.</p>
+      
+      <!-- Barra de Búsqueda / Reserva Rápida -->
+      <div class="search-bar">
+        <div class="search-item">
+          <label for="checkin"><i class="fa-regular fa-calendar-check"></i> Llegada</label>
+          <input type="date" id="checkin" name="checkin">
+        </div>
+        <div class="search-item">
+          <label for="checkout"><i class="fa-regular fa-calendar-xmark"></i> Salida</label>
+          <input type="date" id="checkout" name="checkout">
+        </div>
+        <div class="search-item">
+          <label for="huespedes"><i class="fa-solid fa-user-group"></i> Huéspedes</label>
+          <select id="huespedes" name="huespedes">
+            <option value="1">1 Huésped</option>
+            <option value="2" selected>2 Huéspedes</option>
+            <option value="3">3 Huéspedes</option>
+            <option value="4">4+ Huéspedes</option>
+          </select>
+        </div>
+        <button type="button" class="btn-search" onclick="calcularTotal(true)">Ver Disponibilidad</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Galería de Fotos -->
+  <section id="galeria" class="container">
+    <h2>Galería del Alojamiento</h2>
+    <div class="grid-galeria">
+      <div class="foto-principal">
+        <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80" alt="Vista Principal">
+      </div>
+      <div class="foto-secundaria">
+        <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=400&q=80" alt="Habitación">
+      </div>
+      <div class="foto-secundaria">
+        <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=400&q=80" alt="Baño">
+      </div>
+      <div class="foto-secundaria">
+        <img src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=400&q=80" alt="Cocina">
+      </div>
+      <div class="foto-secundaria">
+        <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=400&q=80" alt="Balcón/Exterior">
+      </div>
+    </div>
+  </section>
+
+  <!-- Descripción y Servicios -->
+  <section id="caracteristicas" class="container grid-detalles">
+    <div class="detalles-info">
+      <h2>Alojamiento entero: Villa / Apartamento</h2>
+      <p class="subtitulo">4 huéspedes · 2 habitaciones · 2 camas · 1.5 baños</p>
+      <hr>
+      <h3>Lo que ofrece este lugar</h3>
+      <ul class="lista-servicios">
+        <li><i class="fa-solid fa-wifi"></i> Wi-Fi de alta velocidad</li>
+        <li><i class="fa-solid fa-square-parking"></i> Estacionamiento gratuito</li>
+        <li><i class="fa-solid fa-snowflake"></i> Aire acondicionado</li>
+        <li><i class="fa-solid fa-tv"></i> TV Smart con Netflix/Cable</li>
+        <li><i class="fa-solid fa-kitchen-set"></i> Cocina equipada</li>
+        <li><i class="fa-solid fa-water-ladder"></i> Piscina / Jacuzzi</li>
+      </ul>
+    </div>
+
+    <!-- Caja Flotante de Reserva -->
+    <div class="card-reserva" id="reservar">
+      <div class="precio-noche">
+        <span class="precio">$85 USD</span> <span class="noche">/ noche</span>
+      </div>
+      
+      <!-- Formulario configurado con Netlify Forms -->
+      <form id="booking-form" name="solicitudes-reserva" method="POST" data-netlify="true" onsubmit="realizarReserva(event)">
+        <!-- Campos ocultos requeridos por Netlify -->
+        <input type="hidden" name="form-name" value="solicitudes-reserva">
+
+        <div class="form-group">
+          <label for="nombre_completo">Nombre Completo</label>
+          <input type="text" id="nombre_completo" name="nombre_completo" placeholder="Ej. Juan Pérez" required>
+        </div>
+        <div class="form-group">
+          <label for="correo_electronico">Correo Electrónico</label>
+          <input type="email" id="correo_electronico" name="correo_electronico" placeholder="correo@ejemplo.com" required>
+        </div>
+        <div class="resumen-precio" id="resumen-precio">
+          <p>Selecciona las fechas para calcular el precio total.</p>
+        </div>
+        <button type="submit" class="btn-reservar">Solicitar Reserva</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Pie de página -->
+  <footer>
+    <p>&copy; 2026 Villa Paraíso. Todos los derechos reservados.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

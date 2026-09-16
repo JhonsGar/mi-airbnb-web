@@ -1,0 +1,277 @@
+/* Estilos Generales */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  color: #222222;
+  background-color: #fafafa;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 2rem auto;
+  padding: 0 1.5rem;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 3rem;
+  background: white;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #ff385c;
+}
+
+.navbar ul {
+  display: flex;
+  list-style: none;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+}
+
+.btn-nav {
+  background: #ff385c;
+  color: white !important;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  transition: background 0.3s;
+}
+
+.btn-nav:hover {
+  background: #e00b41;
+}
+
+/* Banner / Hero */
+.hero {
+  background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1600&q=80') center/cover;
+  height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  padding: 0 1rem;
+}
+
+.hero-content h1 {
+  font-size: 2.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+/* Buscador */
+.search-bar {
+  background: white;
+  padding: 1rem;
+  border-radius: 50px;
+  display: flex;
+  gap: 1rem;
+  color: #333;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0.3rem 1rem;
+}
+
+.search-item label {
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: #717171;
+
+}
+
+.search-item input, .search-item select {
+  border: none;
+  outline: none;
+  font-size: 0.95rem;
+  background: transparent;
+  cursor: pointer;
+}
+
+.btn-search {
+  background: #ff385c;
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 30px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Galería Grid */
+.grid-galeria {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-rows: 200px 200px;
+  gap: 10px;
+  border-radius: 15px;
+  overflow: hidden;
+  margin-top: 1rem;
+}
+
+.grid-galeria img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s;
+}
+
+.grid-galeria img:hover {
+  transform: scale(1.03);
+}
+
+.foto-principal {
+  grid-column: 1 / 2;
+  grid-row: 1 / 3;
+}
+
+/* Sección Detalles */
+.grid-detalles {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 2rem;
+}
+
+.subtitulo {
+  color: #717171;
+  margin: 0.5rem 0 1.5rem 0;
+}
+
+.lista-servicios {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.lista-servicios li {
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.lista-servicios i {
+  color: #ff385c;
+}
+
+/* Tarjeta de Reserva */
+.card-reserva {
+  background: white;
+  border: 1px solid #dddddd;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+  height: fit-content;
+}
+
+.precio-noche {
+  margin-bottom: 1rem;
+}
+
+.precio {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.noche {
+  color: #717171;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-size: 0.85rem;
+  font-weight: bold;
+  margin-bottom: 0.3rem;
+}
+
+.form-group input {
+  padding: 0.6rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.resumen-precio {
+  background: #f7f7f7;
+  padding: 0.8rem;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+
+.btn-reservar {
+  width: 100%;
+  background: #ff385c;
+  color: white;
+  border: none;
+  padding: 0.8rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+footer {
+  text-align: center;
+  padding: 1.5rem;
+  background: #222;
+  color: white;
+  margin-top: 3rem;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+  .grid-galeria {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
+  .foto-principal {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  .grid-detalles {
+    grid-template-columns: 1fr;
+  }
+  .search-bar {
+    border-radius: 15px;
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
