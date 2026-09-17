@@ -8,7 +8,7 @@
   <!-- Iconos de FontAwesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    /* Asegura desplazamiento suave para todos los botones/enlaces de la navegación */
+    /* Desplazamiento suave para todos los enlaces y botones de navegación */
     html {
       scroll-behavior: smooth;
     }
@@ -58,6 +58,9 @@
         </div>
         <button type="button" class="btn-search" onclick="calcularTotal(true)">Ver Disponibilidad</button>
       </div>
+
+      <!-- Contenedor dinámico para mostrar la disponibilidad directamente en pantalla -->
+      <div id="resultado-busqueda"></div>
     </div>
   </section>
 
@@ -108,20 +111,28 @@
       
       <!-- Formulario configurado con Netlify Forms -->
       <form id="booking-form" name="solicitudes-reserva" method="POST" data-netlify="true" onsubmit="realizarReserva(event)">
-        <!-- Campos ocultos requeridos por Netlify -->
+        <!-- Input oculto obligatorio para Netlify -->
         <input type="hidden" name="form-name" value="solicitudes-reserva">
 
         <div class="form-group">
           <label for="nombre_completo">Nombre Completo</label>
           <input type="text" id="nombre_completo" name="nombre_completo" placeholder="Ej. Juan Pérez" required>
         </div>
+
         <div class="form-group">
           <label for="correo_electronico">Correo Electrónico</label>
           <input type="email" id="correo_electronico" name="correo_electronico" placeholder="correo@ejemplo.com" required>
         </div>
+
+        <div class="form-group">
+          <label for="telefono_cliente">Teléfono / WhatsApp</label>
+          <input type="tel" id="telefono_cliente" name="telefono_cliente" placeholder="Ej. +1 809 123 4567" required>
+        </div>
+
         <div class="resumen-precio" id="resumen-precio">
           <p>Selecciona las fechas para calcular el precio total.</p>
         </div>
+
         <button type="submit" class="btn-reservar">Solicitar Reserva</button>
       </form>
     </div>
@@ -130,6 +141,12 @@
   <!-- Pie de página -->
   <footer>
     <p>&copy; 2026 Villa Paraíso. Todos los derechos reservados.</p>
+    <p>
+      Contacto: 
+      <a href="mailto:JhonsonCorporation09@gmail.com" style="color: #008489; text-decoration: none;">
+        <i class="fa-solid fa-envelope"></i> JhonsonCorporation09@gmail.com
+      </a>
+    </p>
   </footer>
 
   <script src="script.js"></script>
